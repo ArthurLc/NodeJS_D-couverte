@@ -1,4 +1,4 @@
-var express = require('express');// Module "express": Facilite les routes (URL), templates, etc...
+var express = require('express');
 
 var app = express();
 
