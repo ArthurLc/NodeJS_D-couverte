@@ -1,0 +1,34 @@
+Express et les middlewares
+##########################
+
+Express est un framework basé sur le concept de middlewares.
+Ce sont des petits morceaux d'application qui rendent chacun un service spécifique.
+Vous pouvez charger uniquement les middlewares dont vous avez besoin.
+
+==========================
+
+Express est fourni avec une quinzaine de middlewares de base, et d'autres développeurs peuvent bien entendu en proposer d'autres via NPM.
+Les middlewares livrés avec Express fournissent chacun des micro-fonctionnalités. Il y a par exemple :
+
+    - compression : permet la compression gzip de la page pour un envoi plus rapide au navigateur
+    - cookie-parser : permet de manipuler les cookies
+    - cookie-session : permet de gérer des informations de session (durant la visite d'un visiteur)
+    - serve-static : permet de renvoyer des fichiers statiques contenus dans un dossier (images, fichiers à télécharger...)
+    - serve-favicon : permet de renvoyer la favicon du site
+    - csrf : fournit une protection contre les failles CSRF
+    - etc.
+
+Tous ces middlewares offrent vraiment des micro-fonctionnalités.
+Il y en a des tous petits comme "serve-favicon" par exemple.
+
+==========================
+
+Ces middlewares sont interconnectés et peuvent communiquer entre eux.
+Express ne fait qu'ajouter les routes et les vues par-dessus l'ensemble.
+
+Tous ces middlewares communiquent entre eux en se renvoyant jusqu'à 4 paramètres :
+
+    - err: les erreurs
+    - req: la requête du visiteur
+    - res: la réponse à renvoyer (la page HTML et les informations d'en-tête)
+    - next: un callback vers la prochaine fonction à appeler
